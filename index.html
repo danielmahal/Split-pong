@@ -1,0 +1,36 @@
+<!doctype html>
+
+<html>
+<head>
+    <title>Split Pong</title>
+
+    <style>
+    </style>
+</head>
+<body>
+    <h1>Split pong</h1>
+
+    <section class="connection">Connecting to server...</section>
+
+    <section class="game"></section>
+
+    <script src="/vendor/jquery-1.9.1.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var port = /localhost/.test(window.location.href) ? 5000 : 80;
+        var socket = io.connect('http://localhost:' + port);
+
+        socket.on('connect', function () {
+            $('.connection').text('Waiting for handshake');
+        });
+
+        socket.on('game:ready', function () {
+            $('.connection').text('Game ready');
+        });
+
+        socket.on('game:over', function () {
+            $('.connection').text('Game over');
+        });
+    </script>
+</body>
+</html>

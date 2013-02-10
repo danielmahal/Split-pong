@@ -1,0 +1,12 @@
+{
+    "name": "SplitPong",
+    "version": "1.0.0",
+    "dependencies": {
+        "socket.io": "0.9.x",
+        "express": "3.x"
+    },
+    "engines": {
+        "node": "0.8.x",
+        "npm": "1.1.x"
+    }
+}
